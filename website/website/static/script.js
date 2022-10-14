@@ -1,12 +1,28 @@
+// padding days/padding squares needed 
+
+// keeps track of which month we are on
+//-1 == december, jan = 0 etc...
+
 let nav = 0;
+
+//going to be whichever day we clicked on
 let clicked = null;
+
+//events - an array of event objects, can only store strings in local storage
+//need to make sure 'events' exist in local storage, before we call Json.parse
+//events are either going to be an array with event objects or an empty array with no events
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+
+// global constants
+
 
 const calendar = document.getElementById('calendar');
 const newEventModal = document.getElementById('newEventModal');
 const deleteEventModal = document.getElementById('deleteEventModal');
 const backDrop = document.getElementById('modalBackDrop');
 const reminder = document.getElementById('reminder');
+
+//weekdays is going to be an array that will let us determine the number of padding days
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 function openModal(date) {
@@ -25,9 +41,12 @@ function openModal(date) {
 }
 
 function load() {
+    //dt is a constant OBJECT, therefore it has properties
   const dt = new Date();
 
+  
   if (nav !== 0) {
+    //we get the current month e.g. October == 10 and either add or subtract nav to get to the next or prev month
     dt.setMonth(new Date().getMonth() + nav);
   }
 
@@ -113,6 +132,7 @@ function deleteEvent() {
   closeModal();
 }
 
+//need event listeners for buttons
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
     nav++;
