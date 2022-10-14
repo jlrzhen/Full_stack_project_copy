@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Student Post</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/styles2.css">
+    </head>
+
+    <!-- create a sidebar -->
+<body>
+    <div class="sidenav">
+        <ul class="sidenav_links">
+            <li><a href="/">Home</a></li>
+            <br/>
+            <li><a href="/about">About</a></li>
+            <br/>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+
+
+
+    <div id="container">
+        <div id="header">
+            <div id="monthDisplay"></div>
+
+            <div>
+                <button id="backButton">Back</button>
+                <button id="nextButton">Next</button>
+            </div>
+        </div>
+
+            <div id="weekdays">
+                <div>Sunday</div>
+                <div>Monday</div>
+                <div>Tuesday</div>
+                <div>Wednesday</div>
+                <div>Thursday</div>
+                <div>Friday</div>
+                <div>Saturday</div>
+
+            </div>
+
+        <div id="calendar"></div>
+
+
+
+    </div>
+
+    <div id="newEventModal">
+        <h2>Set Reminder</h2>
+        <form method="POST">
+        
+            <input name="reminder" id="reminder" class="form-control"  placeholder="Event Title" />
+        </form>
+  
+        <button id="saveButton">Save</button>
+        <button id="cancelButton">Cancel</button>
+      </div>
+  
+      <div id="deleteEventModal">
+        <h2>Event</h2>
+  
+        <p id="eventText"></p>
+  
+        <button id="deleteButton">Delete</button>
+        <button id="closeButton">Close</button>
+      </div>
+  
+      <div id="modalBackDrop"></div>
+  
+
+    <script src="../static/script.js"></script>
+
+</body>

@@ -1,0 +1,99 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<!-- we need to build this form that takes the inputted user data -->
+<!-- when we build this form send a POST request to the backend -->
+
+<style type="text/css">
+    body{
+        text-align: center;
+    }
+
+    form {
+    display: inline-block;
+}
+
+</style>
+
+
+<body>
+    <font size - "6" 
+          face="Montserrat" 
+          color="white"
+          Login 
+    </font> 
+       
+    <form method = "Post">
+        <!-- header for the form, centered in the screen -->
+        
+        <h3 align = "center">Sign Up</h3>
+        <!-- this basically groups up the information that the user enters -->
+        
+        <div class = "form-group">
+            <label for="email">Email Address</label>
+            <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            placeholder="Enter email"
+        </div>
+        <!-- what the "name" will do for us is it is what the attribute will be called when we pass the information in this field to our backend, when we submit this form its going to bundle up all the information in here and its going to use the name of these fields to represent them when it sends the information to the backend  -->
+        
+        <div class = "form-group">
+            <label for="userName">Username</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="userName" 
+            name="userName" 
+            placeholder="Enter Username"
+        </div>
+
+        <div class = "form-group">
+            <label for="firstName">First Name</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="firstName" 
+            name="firstName" 
+            placeholder="Enter first name"
+        </div>
+
+        <div class = "form-group">
+            <label for="lastName">Last Name</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="lastName" 
+            name="lastName" 
+            placeholder="Enter last name"
+        </div>
+
+        <div class = "form-group">
+            <label for="password1">Password</label>
+            <input 
+            type="password" 
+            class="form-control" 
+            id="password1" 
+            name="password1" 
+            placeholder="Enter a password"
+        </div>
+
+        <div class = "form-group">
+            <label for="password2">Password (Confirm)</label>
+            <input 
+            type="password" 
+            class="form-control" 
+            id="password2" 
+            name="password2" 
+            placeholder="Confirm your password"
+        </div>
+        <!-- add a breakline to separate the button from the placeholders/ areas of information that the user will be prompted to fill -->
+        <br />
+        <button type="submit" class ="btn btn-primary">Submit</button>
+    </form>
+</body>
+{% endblock %}
+
+<!-- Note that the reason that we can use these bootstrap classes is because the "base.html" file has links from Bootstrap -->

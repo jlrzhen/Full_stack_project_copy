@@ -1,0 +1,45 @@
+
+
+{% extends "base.html" %} 
+
+
+{% block title %}Home{% endblock %}
+
+
+<!-- reminder form, we wwill take the input using the POST method from this we can use the time module in order to send a reminder to the email of the student -->
+
+
+
+
+{% block content %} 
+<font size - "4" 
+face="Montserrat" 
+color="white"
+</font>
+
+
+<h2 align="center"> Important Notes</h2>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+
+<br />
+<form method="POST">
+  <textarea name="note" id="note" class="form-control" rows = "10" columns = "8"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Note</button>
+  </div>
+</form>
+
+
+
+
+{% endblock %}

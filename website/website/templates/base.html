@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Student Post</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    
+    <body>
+        <header>
+            <!-- Wrap image in anchor tag then href it to the homepage '/' -->
+            <a href="/"><img class="logo" src="..\static\images\logo.png" alt = logo></a> 
+            <nav>
+                <!-- ul tag represents an unordered list of items, rendered as a bulleted list -->
+                <ul class ="nav__links">
+                 <!--modify the href from "#" to "/" or "/login"  -->
+                    {%if user.is_authenticated %}
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/schedule">Schedule</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href = "/logout">Logout</a></li>
+                    {% else %}
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/sign-up">Sign Up</a></li>
+                    <li><a href="/about">About</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <a class = "cta" href = '/contact-us'><button>Contact Us</button></a>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        <!-- if there are any messages -->
+        {% if messages %}
+            <!-- check the category of the message and alter the alert colour accordingly -->
+            {%for category,message in messages %}
+            {% if category =='error' %}
+            <div class = "alert alert-danger alter-dismissable fade show" role = "alert">
+            {{ message }}
+            <button type = "button" class = "close" data-dismiss = "alert">
+                <span aria-hidden = "true">&times;</span>
+            </button>
+            </div>
+            
+            {% elif category =='success' %}
+            <div class = "alert alert-success alter-dismissable fade show" role = "alert">
+            {{ message }}
+            <button type = "button" class = "close" data-dismiss = "alert">
+                <span aria-hidden = "true">&times;</span>
+            </button>
+            </div>
+            {%endif%}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        
+        <!-- editable content/ content that is changed based on the url path that the user is on -->
+        
+        <div class = "container">
+          {% block content %}
+          {% endblock %}
+        </div> 
+        
+
+    </body>
+
+
+
+
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+      ></script>
+  
+      <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='index.js') }}"
+      ></script>
+
+</html>
