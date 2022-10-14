@@ -1,5 +1,4 @@
-from flask import session
-from flask_socketio import SocketIO
+
 import time
 
 from website import create_app
