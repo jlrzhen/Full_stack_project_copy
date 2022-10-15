@@ -1,1 +1,1 @@
-web: gunicorn website/src:run
+web: gunicorn website:run
