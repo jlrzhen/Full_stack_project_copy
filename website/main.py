@@ -5,7 +5,7 @@ from sqlalchemy import true
 
 from src import create_app
 
-
+from src import run
 
 # app = create_app()
 
@@ -13,13 +13,13 @@ from src import create_app
 # if __name__ == '__main__':
 #     app.run(debug = True)
 
-def run():
-    app = create_app()
+# def run():
+#     app = create_app()
 
-    bool = True
+#     bool = True
 
-    if bool:
-        app.run(debug = True)
+#     if bool:
+#         app.run(debug = True)
 
 
 run()
