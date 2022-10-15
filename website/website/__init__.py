@@ -48,3 +48,13 @@ def create_database(app):
     if not path.exists('website/' + DB_NAME):
         db.create_all(app=app) #need to tell SQLalchemy which app we are creating the database for
         print('Created Database')
+
+
+def run():
+    app = create_app()
+
+    bool = True
+
+    if bool:
+        app.run(debug = True)
+
